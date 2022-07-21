@@ -281,7 +281,10 @@ def process_txn(tx):
     
     #block["number"] += 1
         
-    db.store_block(block)
+    encoded_block = encode(block)
+    encoded_block = json.loads(encoded_block)
+        
+    db.store_block(encoded_block)
     
     #db.put(block, BlockStorage.TX)
     
